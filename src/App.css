@@ -1,0 +1,67 @@
+* {
+	box-sizing: border-box;
+	font-family: "Times New Roman", Helvetica, "Lobster";
+	background-color: #eddec7;
+	color: #312622;
+}
+.bg-color {
+	background-color: #eddec7;
+}
+.nc-title {
+	font-family: "Lobster";
+}
+.title {
+	font-family: "Helvetica";
+}
+.bg-hl,
+a {
+	background-color: #ead7bf;
+}
+.welcome-btn:hover {
+	transform: scale(1.2);
+}
+.btn-hl {
+	background-color: #deb781;
+}
+.header-container {
+	height: 20vh;
+	border: 2px solid;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+
+	right: 0px;
+}
+.body-container {
+	height: 80vh;
+	border: 2px solid;
+	position: absolute;
+	top: 20vh;
+	bottom: 10vh;
+	left: 0px;
+	right: 0px;
+	overflow: auto;
+}
+.footer-container {
+	border: 2px solid;
+	position: absolute;
+	bottom: 0px;
+	height: 10vh;
+	left: 0px;
+	right: 0px;
+}
+.search-container {
+	display: flex;
+	position: absolute;
+	top: 2vh;
+	right: 0;
+	height: 50px;
+}
+.search-ani {
+	height: 70px;
+	width: 70px;
+}
+
+.badge-color {
+	color: #ab8a5b;
+}
