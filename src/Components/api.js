@@ -22,3 +22,9 @@ export function getArticleById(article_id) {
 		`https://back-end-project-clnr.onrender.com/api/articles/${article_id}`
 	);
 }
+
+export function getCommentByArticleId(article_id) {
+	return axios.get(
+		`https://back-end-project-clnr.onrender.com/api/articles/${article_id}/comments`
+	);
+}
