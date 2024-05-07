@@ -13,7 +13,7 @@ export default function ArticleCard({ article, avatarObj }) {
 	} = article;
 
 	return (
-		<Link to={`/news/${article_id}`}>
+		<Link to={`/news/${article_id}`} state={{ avatarObj }}>
 			<div className="border-4 border-black h-50 my-5 mx-16 p-2">
 				<div className="flex  my-2">
 					<img
@@ -36,7 +36,7 @@ export default function ArticleCard({ article, avatarObj }) {
 				<p>
 					{new Date(Date.now()).getFullYear() -
 						new Date(created_at).getFullYear()}{" "}
-					yeas ago
+					years ago
 				</p>
 				<div className="flex flex-row-reverse">
 					<Badge

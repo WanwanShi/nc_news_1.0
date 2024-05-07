@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import { Routes, Route, useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import Welcome from "./Components/Welcome";
+import SingleArticle from "./Components/SingleArticle";
 
 function App() {
 	const [currentSearch, setCurrentSearch] = useState("");
@@ -26,8 +27,8 @@ function App() {
 							<Body currentSearch={currentSearch} searchParams={searchParams} />
 						}
 					/>
-					{/* <Route path="/news/:article_id" element={<SingleArticle />} />
-					<Route path="/users/login" element={<Login />} />
+					<Route path="/news/:article_id" element={<SingleArticle />} />
+					{/*<Route path="/users/login" element={<Login />} />
 					<Route
 						path="/news/users/:username/post_article"
 						element={<NewArticleAdder />}
