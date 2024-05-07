@@ -28,3 +28,12 @@ export function getCommentByArticleId(article_id) {
 		`https://back-end-project-clnr.onrender.com/api/articles/${article_id}/comments`
 	);
 }
+
+export function updateArticleVotesById(article_id, vote) {
+	let patchObj = {};
+	patchObj.inc_votes = vote;
+	return axios.patch(
+		`https://back-end-project-clnr.onrender.com/api/articles/${article_id}`,
+		patchObj
+	);
+}
