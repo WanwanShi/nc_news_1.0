@@ -29,11 +29,21 @@ export function getCommentByArticleId(article_id) {
 	);
 }
 
-export function updateArticleVotesById(article_id, vote) {
-	let patchObj = {};
-	patchObj.inc_votes = vote;
+export function updateArticleVotesById(article_id, voteObj) {
 	return axios.patch(
 		`https://back-end-project-clnr.onrender.com/api/articles/${article_id}`,
+		voteObj
+	);
+}
+
+export function postCommentByArticleId(article_id, patchObj) {
+	return axios.post(
+		`https://back-end-project-clnr.onrender.com/api/articles/${article_id}/comments`,
 		patchObj
+	);
+}
+export function deleteCommentById(commentId) {
+	return axios.delete(
+		`https://back-end-project-clnr.onrender.com/api/comments/${commentId}`
 	);
 }
