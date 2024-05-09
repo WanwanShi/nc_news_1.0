@@ -35,7 +35,7 @@ export default function Sort({ searchParams }) {
 					id="sortBy"
 					value={sortBy}
 					onChange={handleSort}
-					className="border-solid bg-blue-200 border-2px mx-2"
+					className="border-solid btn-hl border-2px mx-2 rounded-lg"
 				>
 					<option value="created_at">Date</option>
 					<option value="title">Title</option>
@@ -45,7 +45,7 @@ export default function Sort({ searchParams }) {
 			<div className="mx-4 text-lg w-40">
 				<label htmlFor="order"> Order:</label>
 				<select
-					className="border-solid bg-blue-200 border-2px mx-2"
+					className="border-solid btn-hl border-2px mx-2 rounded-lg"
 					value={order}
 					onChange={handleOrder}
 					name="order"

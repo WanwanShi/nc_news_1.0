@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import Lottie from "lottie-react";
-import NoDataFound_Animation from "../assets/NoDataFound_Animation - 1714682242871.json";
 import getArticles from "./api";
 import { getUsers } from "./api";
 import ArticleCard from "./ArticleCard";
-import Loading_animation from "../assets/loading-Animation - 1715019994255.json";
+import ErrorPage from "./ErrorPage";
+import Loading from "./Loading";
 
 export default function ArticlesList({ currentSearch, searchParams }) {
 	const [allArticles, setAllArticles] = useState([]);
@@ -45,31 +44,11 @@ export default function ArticlesList({ currentSearch, searchParams }) {
 	});
 
 	if (isError) {
-		return (
-			<div className="size-96 mx-auto">
-				<h2 className="my-3 text-2xl">Oops, it seems there is no articles</h2>
-				<div className="animation-container" id="no-data-animation-container">
-					<Lottie
-						animationData={NoDataFound_Animation}
-						loop={true}
-						id="no-data-animation"
-					/>
-				</div>
-			</div>
-		);
+		return <ErrorPage />;
 	}
 
 	if (isLoading) {
-		return (
-			<>
-				<h2>Almost there, we are trying to get the articles you want.....</h2>
-				<Lottie
-					animationData={Loading_animation}
-					loop={true}
-					id="loading-animation"
-				/>
-			</>
-		);
+		return <Loading />;
 	} else {
 		return (
 			<div className="w-8/9">

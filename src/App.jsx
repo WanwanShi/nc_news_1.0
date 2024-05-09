@@ -12,15 +12,17 @@ import ErrorPage from "./Components/ErrorPage";
 function App() {
 	const [currentSearch, setCurrentSearch] = useState("");
 	const [searchParams, setSearchParams] = useSearchParams("");
+
 	return (
 		<>
-			<div className="header-container grid sticky">
+			<div className="header-container grid sticky mx-3">
 				<Header
 					setCurrentSearch={setCurrentSearch}
 					setSearchParams={setSearchParams}
+					searchParams={searchParams}
 				/>
 			</div>
-			<div className="body-container">
+			<div className="body-container mx-3">
 				<Routes>
 					<Route path="/" element={<Welcome />} />
 					<Route
@@ -40,7 +42,7 @@ function App() {
 					<Route path="/news/users/:username/articles" element={<MePage />} /> */}
 				</Routes>
 			</div>
-			<div className="footer-container ">
+			<div className="footer-container mx-3">
 				<Footer />
 			</div>
 		</>

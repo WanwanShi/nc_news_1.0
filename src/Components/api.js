@@ -13,7 +13,9 @@ export default function getArticles(topicQuery, sortByQuery, orderQuery) {
 
 	return axios.get(path);
 }
-
+export function getTopics() {
+	return axios.get(`https://back-end-project-clnr.onrender.com/api/topics`);
+}
 export function getUsers() {
 	return axios.get(`https://back-end-project-clnr.onrender.com/api/users`);
 }
