@@ -1,6 +1,7 @@
 import { TiThMenu } from "react-icons/ti";
 import ArticlesList from "./ArticlesList";
 import { useState } from "react";
+import Sort from "./Sort";
 export default function Body({ currentSearch, searchParams }) {
 	const [isMenuHidden, setIsMenuHidden] = useState(true);
 
@@ -21,10 +22,7 @@ export default function Body({ currentSearch, searchParams }) {
 						: "border-4 border-black h-24"
 				}
 			>
-				<p>
-					A hidden div that only show up when the menu clicked sort_by query and
-					order query will be here soon ...
-				</p>
+				<Sort searchParams={searchParams} />
 			</div>
 			<ArticlesList currentSearch={currentSearch} searchParams={searchParams} />
 		</>

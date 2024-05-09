@@ -1,12 +1,17 @@
 import axios from "axios";
 
-export default function getArticles(topicQuery) {
+export default function getArticles(topicQuery, sortByQuery, orderQuery) {
+	let path = "https://back-end-project-clnr.onrender.com/api/articles";
 	if (topicQuery) {
-		return axios.get(
-			`https://back-end-project-clnr.onrender.com/api/articles?topic=${topicQuery}`
-		);
+		path += `?topic=${topicQuery}`;
 	}
-	return axios.get("https://back-end-project-clnr.onrender.com/api/articles");
+	if (!topicQuery && sortByQuery && orderQuery) {
+		path += `?sort_by=${sortByQuery}&&order=${orderQuery}`;
+	} else if (sortByQuery && orderQuery) {
+		path += `&&sort_by=${sortByQuery}&&order=${orderQuery}`;
+	}
+
+	return axios.get(path);
 }
 
 export function getUsers() {
