@@ -7,6 +7,7 @@ import { useState } from "react";
 import Welcome from "./Components/Welcome";
 import SingleArticle from "./Components/SingleArticle";
 import Login from "./Components/Login";
+import ErrorPage from "./Components/ErrorPage";
 
 function App() {
 	const [currentSearch, setCurrentSearch] = useState("");
@@ -30,6 +31,7 @@ function App() {
 					/>
 					<Route path="/news/:article_id" element={<SingleArticle />} />
 					<Route path="/news/users/login" element={<Login />} />
+					<Route path="*" element={<ErrorPage />} />
 					{/*<Route
 						path="/news/users/:username/post_article"
 						element={<NewArticleAdder />}

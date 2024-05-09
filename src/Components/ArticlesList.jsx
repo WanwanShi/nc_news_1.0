@@ -37,7 +37,7 @@ export default function ArticlesList({ currentSearch, searchParams }) {
 				setIsError(true);
 				setIsLoading(false);
 			});
-	}, [currentSearch, topicQuery, searchParams]);
+	}, [currentSearch, topicQuery, sortByQuery, orderQuery]);
 
 	let avatarObj = {};
 	allUsers.forEach((user) => {
