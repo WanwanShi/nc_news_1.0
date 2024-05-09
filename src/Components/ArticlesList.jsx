@@ -11,12 +11,14 @@ export default function ArticlesList({ currentSearch, searchParams }) {
 	const [isError, setIsError] = useState(false);
 	const [allUsers, setAllUsers] = useState([]);
 	const topicQuery = searchParams.get("topic");
+	const sortByQuery = searchParams.get("sort_by");
+	const orderQuery = searchParams.get("order");
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		setIsLoading(true);
 		setIsError(false);
-		getArticles(topicQuery)
+		getArticles(topicQuery, sortByQuery, orderQuery)
 			.then(({ data }) => {
 				let articlesDisplayed = data.articles;
 				setAllArticles(() => {
