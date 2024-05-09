@@ -11,6 +11,8 @@ import CommentCard from "./CommentCard";
 import Badge from "@mui/material/Badge";
 import ArticleVotes from "./ArticleVotes";
 import { UserContext } from "../contexts/User";
+import Lottie from "lottie-react";
+import NoDataFound_Animation from "../assets/NoDataFound_Animation - 1714682242871.json";
 
 export default function SingleArticle() {
 	const { article_id } = useParams();
@@ -115,7 +117,18 @@ export default function SingleArticle() {
 	}, [article_id, commentBody, newComment, deletedCommentId]);
 
 	if (isArticleError) {
-		return <h2>Something is wrong with this article....</h2>;
+		return (
+			<div className="size-96 mx-auto">
+				<h2 className="my-3 text-2xl">Oops, it seems there is no articles</h2>
+				<div className="animation-container" id="no-data-animation-container">
+					<Lottie
+						animationData={NoDataFound_Animation}
+						loop={true}
+						id="no-data-animation"
+					/>
+				</div>
+			</div>
+		);
 	}
 	return (
 		<div className="mx-2">

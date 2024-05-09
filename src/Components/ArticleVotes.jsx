@@ -48,11 +48,6 @@ export default function ArticleVotes({ votes, article_id }) {
 			alert("You have voted");
 		}
 	};
-	setUser(() => {
-		const newUser = { ...user };
-		newUser.vote = true;
-		return newUser;
-	});
 
 	return (
 		<>
