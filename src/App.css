@@ -15,7 +15,7 @@
 }
 .bg-hl,
 a {
-	background-color: #ead7bf;
+	background-color: #eddec7;
 }
 .welcome-btn:hover {
 	transform: scale(1.2);
@@ -64,4 +64,7 @@ a {
 
 .badge-color {
 	color: #ab8a5b;
+}
+#welcome a {
+	background: #eddec7;
 }
