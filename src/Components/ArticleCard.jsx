@@ -51,7 +51,7 @@ export default function ArticleCard({ article, avatarObj }) {
 						>
 							<AiOutlineComment className="mx-2 size-8 mb:size-6 tb:size-6" />
 						</Badge>
-						<Badge badgeContent={votes} color="primary" className="">
+						<Badge badgeContent={votes} color="success" className="">
 							<AiOutlineLike className=" mx-2 size-8 mb:size-6 tb:size-6" />
 						</Badge>
 					</div>
