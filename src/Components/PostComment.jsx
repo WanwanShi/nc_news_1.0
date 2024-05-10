@@ -45,6 +45,7 @@ export default function PostComment({
 	return (
 		<>
 			<button
+				aria-label="post new comment"
 				className="my-3 btn-hl rounded-full block text-2xl p-2 "
 				onClick={toggleComment}
 			>
@@ -60,6 +61,8 @@ export default function PostComment({
 			>
 				<form onSubmit={handleCommentSubmit}>
 					<input
+						aria-label="comment content"
+						name="comment content"
 						type="text"
 						placeholder="Leave your comment here"
 						className="rounded-lg h-20 w-full border-black border-3 border-solid bg-orange-100 text-start"
@@ -76,7 +79,7 @@ export default function PostComment({
 			<p className="inline-block">Comments</p>
 			<Badge
 				badgeContent={comment_count}
-				color="info"
+				color="success"
 				className="text-yellow-800 badge-color mx-3 font-bold"
 			>
 				<AiOutlineComment className="mx-2 size-8" />

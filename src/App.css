@@ -7,6 +7,11 @@
 .bg-color {
 	background-color: #eddec7;
 }
+p.article-content,
+p.comment-content {
+	color: #141414;
+	font-size: 1.2rem;
+}
 .nc-title {
 	font-family: "Lobster";
 }
@@ -82,8 +87,9 @@ a {
 		margin: 0.5px 2px;
 	}
 	div.article-card-container {
-		width: 95%;
+		width: 100%;
 		margin: 4px auto;
+		height: 30%;
 	}
 	div.article-list-img-container {
 		width: 100%;
@@ -96,12 +102,22 @@ a {
 		height: auto;
 	}
 	p.article-title {
-		font-size: 1.1rem;
+		font-size: 1rem;
 		line-height: normal;
 	}
 	button.footer {
-		font-size: 1.3rem;
-		padding: 1px;
+		font-size: 1.2rem;
+		padding: 7px;
+		line-height: normal;
+	}
+
+	div.like-comment {
+		margin-top: 1px;
+		margin-bottom: 1px;
+	}
+	h3.title {
+		font-size: 1.1rem;
+		line-height: normal;
 	}
 }
 
@@ -123,13 +139,15 @@ a {
 	}
 	div.article-list-img-container {
 		width: 95%;
+		height: 200px;
 		margin: 1px;
 	}
 	div.article-list-img {
 		width: 100%;
 		height: 95%;
 	}
-	p.article-title {
+
+	h3.title {
 		font-size: 1.1rem;
 		line-height: normal;
 	}

@@ -76,7 +76,7 @@ export default function SingleArticle() {
 		<div className="mx-2">
 			<h2 className="title text-3xl font-bold my-3">{title}</h2>
 			<div className="flex">
-				<p className="mx-2 italic">{author}</p>
+				<h3 className="mx-2 italic">{author}</h3>
 				<p className="ml-2">
 					{new Date(Date.now()).getFullYear() -
 						new Date(created_at).getFullYear()}{" "}
@@ -88,7 +88,7 @@ export default function SingleArticle() {
 				src={article_img_url}
 				alt={`image of article {title}`}
 			/>
-			<p className="mx-5 my-5 text-lg subpixel-antialiased">{body}</p>
+			<p className="mx-5 my-5 text-lg article-content">{body}</p>
 
 			<ArticleVotes votes={Number(votes)} article_id={article_id} />
 

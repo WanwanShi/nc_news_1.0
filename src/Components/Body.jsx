@@ -10,7 +10,11 @@ export default function Body({ currentSearch, searchParams }) {
 	};
 	return (
 		<>
-			<button className="bg-hl sticky " onClick={menuClick}>
+			<button
+				className="bg-hl sticky"
+				aria-label="sort by button"
+				onClick={menuClick}
+			>
 				<TiThMenu
 					className={isMenuHidden ? "size-8 mt-2" : "size-8 mt-2 btn-hl"}
 				/>

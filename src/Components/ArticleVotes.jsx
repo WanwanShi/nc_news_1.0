@@ -4,13 +4,15 @@ import { useContext, useState } from "react";
 import { updateArticleVotesById } from "./api";
 import { UserContext } from "../contexts/User";
 import { useNavigate } from "react-router-dom";
+import { brown } from "@mui/material/colors";
+import { useTheme } from "@mui/material/styles";
 
 export default function ArticleVotes({ votes, article_id }) {
 	const [voteChange, setVoteChange] = useState(0);
 	const { user, setUser } = useContext(UserContext);
 
 	const [userVoted, setUserVoted] = useState(false);
-
+	const theme = useTheme();
 	const navigate = useNavigate();
 	const handleVotesChange = (vote) => {
 		// if no login, direct to login first
@@ -57,6 +59,7 @@ export default function ArticleVotes({ votes, article_id }) {
 				className="text-yellow-800 badge-color mx-3 font-bold block"
 			>
 				<button
+					aria-label="like this article"
 					value="up"
 					onClick={() => {
 						handleVotesChange(1);

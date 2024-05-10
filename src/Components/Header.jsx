@@ -43,11 +43,16 @@ export default function Header({
 						type="text"
 						value={searchInput}
 						placeholder="topic author"
+						aria-label="Enter search term"
 						onChange={(e) => {
 							setSearchInput(e.target.value);
 						}}
 					/>
-					<button onClick={handleSearchClick}>
+					<button
+						aria-label="search button"
+						value="search click"
+						onClick={handleSearchClick}
+					>
 						<Lottie
 							className="search-ani h-12 mb:1/4"
 							animationData={search}
@@ -57,35 +62,37 @@ export default function Header({
 				</div>
 			</div>
 
-			<div
-				id="topic-btn-container"
-				className="bg-hl grid-cols-6 justify-around content-center"
-			>
-				<Link to="/news">
-					<button
-						className={
-							!topicQuery
-								? "rounded-lg  mx-4 border-solid btn-hl text-xl p-1 topic-btn"
-								: "rounded-lg  mx-4 border-solid  text-xl p-1 topic-btn "
-						}
-						value="all"
-						onClick={SetTopicPath}
-					>
-						All news
-					</button>
-				</Link>
+			<nav>
+				<div
+					id="topic-btn-container"
+					className="bg-hl grid-cols-6 justify-around content-center"
+				>
+					<Link to="/news">
+						<button
+							className={
+								!topicQuery
+									? "rounded-lg  mx-4 border-solid btn-hl text-xl p-1 topic-btn"
+									: "rounded-lg  mx-4 border-solid  text-xl p-1 topic-btn "
+							}
+							value="all"
+							onClick={SetTopicPath}
+						>
+							All news
+						</button>
+					</Link>
 
-				{allTopics.map((topic) => {
-					return (
-						<TopicBtn
-							key={topic}
-							topic={topic}
-							SetTopicPath={SetTopicPath}
-							searchParams={searchParams}
-						/>
-					);
-				})}
-			</div>
+					{allTopics.map((topic) => {
+						return (
+							<TopicBtn
+								key={topic}
+								topic={topic}
+								SetTopicPath={SetTopicPath}
+								searchParams={searchParams}
+							/>
+						);
+					})}
+				</div>
+			</nav>
 		</>
 	);
 }
