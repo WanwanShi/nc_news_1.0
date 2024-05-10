@@ -14,17 +14,17 @@ export default function ArticleCard({ article, avatarObj }) {
 
 	return (
 		<Link to={`/news/${article_id}`} state={{ avatarObj }}>
-			<div className="border-4 border-black h-50 my-5 mx-16 p-2">
-				<div className="flex  my-2">
+			<div className="article-card-container border-4 border-black h-50 my-5 mx-16 p-2">
+				<div className="username flex my-2">
 					<img
-						className="object-cover rounded-full h-7 w-7 flex-inline mr-4"
+						className="object-cover rounded-full h-6 w-6 flex-inline mr-4"
 						alt={author}
 						src={avatarObj[author]}
 					/>
 					<p className="text-lg font-bold">{author}</p>
 				</div>
 
-				<div className="border-4 border-black flex justify-center my-3 h-60 overflow-hidden">
+				<div className="article-list-img-container border-4 border-black flex justify-center my-3 h-60 overflow-hidden">
 					<img
 						className="object-fill min-h-full "
 						alt="img photo"
@@ -32,7 +32,7 @@ export default function ArticleCard({ article, avatarObj }) {
 					/>
 				</div>
 
-				<p className="text-3xl font-bold title my-2">{title}</p>
+				<p className="text-3xl font-bold title my-2 article-title">{title}</p>
 				<p>
 					{new Date(Date.now()).getFullYear() -
 						new Date(created_at).getFullYear()}{" "}

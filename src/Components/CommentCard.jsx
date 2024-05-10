@@ -7,7 +7,7 @@ import { UserContext } from "../contexts/User";
 export default function CommentCard({
 	comment,
 	handleDelete,
-	isDeleting,
+
 	deletedCommentId,
 }) {
 	const { body, author, votes, comment_id } = comment;
@@ -22,16 +22,10 @@ export default function CommentCard({
 					<>
 						<button
 							onClick={() => handleDelete(comment_id)}
-							className="text-xl bg-red-700 p-1 mx-2"
+							className="text-xl btn-hl p-1 mx-3 rounded"
 						>
 							Delete
 						</button>
-						{isDeleting && deletedCommentId === comment_id && (
-							<p>
-								Trying to delete now.....Don't worry, we will make this
-								disappear as you wish
-							</p>
-						)}
 					</>
 				) : null}
 			</div>

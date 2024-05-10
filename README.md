@@ -20,5 +20,6 @@
 
 - clone this repo https://github.com/WanwanShi/nc_news_1.0 to the directory you want to keep the file.
 - in tour terminal run "cd nc_news_1.0"
+- install all the dependencies by running "npm install" in your terminal.
 - in tour terminal run "npm run dev" and click the hosted link.
 - you can view the web now.
