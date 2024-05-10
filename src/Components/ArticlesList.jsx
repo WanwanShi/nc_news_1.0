@@ -51,7 +51,7 @@ export default function ArticlesList({ currentSearch, searchParams }) {
 		return <Loading />;
 	} else {
 		return (
-			<div className="w-8/9">
+			<div className="article-list-container w-8/9">
 				{allArticles.map((article) => {
 					return (
 						<ArticleCard

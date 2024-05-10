@@ -68,3 +68,76 @@ a {
 #welcome a {
 	background: #eddec7;
 }
+
+@media (max-width: 600px) {
+	button.topic-btn {
+		font-size: small;
+		margin: auto 0.5rem;
+	}
+	div.article-list-container {
+		width: 90%;
+		margin: 4px auto;
+	}
+	div.username {
+		margin: 0.5px 2px;
+	}
+	div.article-card-container {
+		width: 95%;
+		margin: 4px auto;
+	}
+	div.article-list-img-container {
+		width: 100%;
+		height: 170px;
+		object-fit: fill;
+		margin: 0;
+	}
+	div.article-list-img {
+		width: 100%;
+		height: auto;
+	}
+	p.article-title {
+		font-size: 1.1rem;
+		line-height: normal;
+	}
+	button.footer {
+		font-size: 1.3rem;
+		padding: 1px;
+	}
+}
+
+@media only screen and (max-width: 768px) and (min-width: 600px) {
+	button.topic-btn {
+		font-size: 1.1rem;
+		margin: auto 0.5rem;
+	}
+	div.article-list-container {
+		width: 95%;
+		margin: 4px auto;
+	}
+	div.username {
+		margin: 0.5px 2px;
+	}
+	div.article-card-container {
+		width: 95%;
+		margin: 4px auto;
+	}
+	div.article-list-img-container {
+		width: 95%;
+		margin: 1px;
+	}
+	div.article-list-img {
+		width: 100%;
+		height: 95%;
+	}
+	p.article-title {
+		font-size: 1.1rem;
+		line-height: normal;
+	}
+
+	div.footer-container {
+		margin-top: 6px;
+	}
+	div.footer {
+		margin: auto;
+	}
+}

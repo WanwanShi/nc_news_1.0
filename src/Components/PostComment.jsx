@@ -33,6 +33,7 @@ export default function PostComment({
 			postCommentByArticleId(article_id, postObj)
 				.then(({ data }) => {
 					setNewComment(data.comment[0]);
+					setHideComment(true);
 				})
 				.catch(() => {
 					alert(
