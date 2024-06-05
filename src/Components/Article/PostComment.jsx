@@ -1,11 +1,10 @@
-import { UserContext } from "../contexts/User";
+import { UserContext } from "../../contexts/User";
 import { useState, useContext } from "react";
 import { AiOutlineComment } from "react-icons/ai";
 import Badge from "@mui/material/Badge";
 import { useNavigate } from "react-router-dom";
-import { postCommentByArticleId } from "./api";
+import { postCommentByArticleId } from "../../utils/api";
 export default function PostComment({
-	handleDelete,
 	setNewComment,
 	article_id,
 	comment_count,
@@ -43,14 +42,14 @@ export default function PostComment({
 		}
 	};
 	return (
-		<>
+		<div className="mt-5 ml-5">
 			<button
 				aria-label="post new comment"
-				className="my-3 btn-hl rounded-full block text-2xl p-2 "
+				className="my-3 bg-bgHighlight rounded-full block text-2xl p-2 "
 				onClick={toggleComment}
 			>
 				{" "}
-				+ Post new comment
+				+ Comment
 			</button>
 			<div
 				className={
@@ -71,19 +70,16 @@ export default function PostComment({
 							setCommentBody(e.target.value);
 						}}
 					/>
-					<button className="my-5 rounded-lg text-2xl btn-hl p-2">
+					<button className="my-5 rounded-lg text-2xl bg-bgHighlight p-2">
 						Submit
 					</button>
 				</form>
 			</div>
-			<p className="inline-block">Comments</p>
-			<Badge
-				badgeContent={comment_count}
-				color="success"
-				className="text-yellow-800 badge-color mx-3 font-bold"
-			>
+
+			<p className="inline-block mt-3">Comments</p>
+			<Badge badgeContent={comment_count} className="  mx-3 font-bold">
 				<AiOutlineComment className="mx-2 size-8" />
 			</Badge>
-		</>
+		</div>
 	);
 }

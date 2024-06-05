@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+	--mainBg: rgba(237, 222, 199, 1);
+	--bgHighlight: rgba(222, 183, 129, 1);
+	--mainText: rgba(49, 38, 34, 1);
+	--textBlack: rgba(20, 20, 20, 1);
+	--strongHighlight: rgba(140, 95, 31, 1);
+	--textHighLight: rgb(118, 79, 24);
+	--textWhite: rgba(248, 243, 243, 0.975);
+	--topHeadline: rgb(251, 146, 26);
+}
+
+.dark {
+	--mainBg: rgba(49, 38, 34, 1);
+	--bgHighlight: rgb(208, 148, 74);
+	--mainText: rgba(237, 222, 199, 1);
+	--textBlack: rgba(247, 247, 247, 1);
+	--strongHighlight: rgb(238, 202, 125);
+	--textHighLight: rgba(255, 246, 228, 1);
+	--textWhite: rgba(15, 14, 14, 0.975);
+	--topHeadline: rgb(255, 191, 136);
+}

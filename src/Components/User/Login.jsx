@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import { getUserByUsername } from "./api";
-import { UserContext } from "../contexts/User";
+import { getUserByUsername } from "../../utils/api";
+import { UserContext } from "../../contexts/User";
 import { useNavigate } from "react-router-dom";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "../ErrorPage";
 
 export default function Login() {
 	const [usernameInput, setUsernameInput] = useState("");
@@ -43,7 +43,9 @@ export default function Login() {
 							onChange={(e) => setUsernameInput(e.target.value)}
 							placeholder="grumpy19"
 						/>
-						<p>You can use grumpy19 as the username</p>
+						<p className="mx-3 text-sm text-gray-500">
+							You can try to login with "grumpy19" as username
+						</p>
 					</div>
 					<div className="p-20">
 						<button className="rounded-lg text-lg p-1 btn-hl mx-20 my-30">

@@ -1,21 +1,18 @@
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import Badge from "@mui/material/Badge";
 import { useContext, useState } from "react";
-import { updateArticleVotesById } from "./api";
-import { UserContext } from "../contexts/User";
+import { updateArticleVotesById } from "../../utils/api";
+import { UserContext } from "../../contexts/User";
 import { useNavigate } from "react-router-dom";
-import { brown } from "@mui/material/colors";
-import { useTheme } from "@mui/material/styles";
 
 export default function ArticleVotes({ votes, article_id }) {
 	const [voteChange, setVoteChange] = useState(0);
-	const { user, setUser } = useContext(UserContext);
+	const { user } = useContext(UserContext);
 
 	const [userVoted, setUserVoted] = useState(false);
-	const theme = useTheme();
+
 	const navigate = useNavigate();
-	const handleVotesChange = (vote) => {
-		// if no login, direct to login first
+	const handleVotesChange = () => {
 		if (!user.username) {
 			if (confirm("You need to login to vote")) {
 				navigate("/news/users/login");
@@ -52,11 +49,10 @@ export default function ArticleVotes({ votes, article_id }) {
 	};
 
 	return (
-		<>
+		<div className="ml-2">
 			<Badge
 				badgeContent={Number(votes + voteChange)}
-				color="success"
-				className="text-yellow-800 badge-color mx-3 font-bold block"
+				className="  mx-3 font-bold block "
 			>
 				<button
 					aria-label="like this article"
@@ -72,6 +68,6 @@ export default function ArticleVotes({ votes, article_id }) {
 					)}
 				</button>
 			</Badge>
-		</>
+		</div>
 	);
 }

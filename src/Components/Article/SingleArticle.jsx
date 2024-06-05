@@ -3,12 +3,12 @@ import {
 	getArticleById,
 	getCommentByArticleId,
 	deleteCommentById,
-} from "./api";
+} from "../../utils/api";
 import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
 import ArticleVotes from "./ArticleVotes";
 import PostComment from "./PostComment";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "../ErrorPage";
 
 export default function SingleArticle() {
 	const { article_id } = useParams();
@@ -73,10 +73,10 @@ export default function SingleArticle() {
 		return <ErrorPage />;
 	}
 	return (
-		<div className="mx-2">
-			<h2 className="title text-3xl font-bold my-3">{title}</h2>
+		<div className="mx-4 ">
+			<h2 className="title text-3xl font-bold my-3 mx-5">{title}</h2>
 			<div className="flex">
-				<h3 className="mx-2 italic">{author}</h3>
+				<h3 className="mx-5 italic">{author}</h3>
 				<p className="ml-2">
 					{new Date(Date.now()).getFullYear() -
 						new Date(created_at).getFullYear()}{" "}
@@ -84,11 +84,13 @@ export default function SingleArticle() {
 				</p>
 			</div>
 			<img
-				className="article-img my-3 mx-3"
+				className="article-img my-3 mx-5 rounded-lg"
 				src={article_img_url}
 				alt={`image of article {title}`}
 			/>
-			<p className="mx-5 my-5 text-lg article-content">{body}</p>
+			<p className="mx-10 my-5 text-lg article-content first-letter:capitalize first-letter:font-bold first-letter:text-3xl">
+				{body}
+			</p>
 
 			<ArticleVotes votes={Number(votes)} article_id={article_id} />
 
@@ -104,7 +106,7 @@ export default function SingleArticle() {
 			) : comment_count === 0 ? (
 				<h2 className="text-2xl mb-20">There is no comment yet....</h2>
 			) : (
-				comments.map((comment) => {
+				comments.map((comment, index) => {
 					return (
 						<CommentCard
 							key={comment.comment_id}
@@ -112,6 +114,7 @@ export default function SingleArticle() {
 							handleDelete={handleDelete}
 							isDeleting={isDeleting}
 							deletedCommentId={deletedCommentId}
+							index={index}
 						/>
 					);
 				})

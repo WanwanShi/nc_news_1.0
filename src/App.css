@@ -1,15 +1,12 @@
 * {
 	box-sizing: border-box;
 	font-family: "Times New Roman", Helvetica, "Lobster";
-	background-color: #eddec7;
-	color: #312622;
+	/* background-color: #eddec7;
+	color: #312622; */
 }
-.bg-color {
-	background-color: #eddec7;
-}
+
 p.article-content,
 p.comment-content {
-	color: #141414;
 	font-size: 1.2rem;
 }
 .nc-title {
@@ -18,19 +15,19 @@ p.comment-content {
 .title {
 	font-family: "Helvetica";
 }
-.bg-hl,
-a {
-	background-color: #eddec7;
-}
+
 .welcome-btn:hover {
 	transform: scale(1.2);
 }
 .btn-hl {
 	background-color: #deb781;
 }
+.tag-text-hl {
+	color: #8c5f1f;
+}
 .header-container {
 	height: 20vh;
-	border: 2px solid;
+
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -39,7 +36,7 @@ a {
 }
 .body-container {
 	height: 80vh;
-	border: 2px solid;
+
 	position: absolute;
 	top: 20vh;
 	bottom: 10vh;
@@ -48,12 +45,8 @@ a {
 	overflow: auto;
 }
 .footer-container {
-	border: 2px solid;
-	position: absolute;
-	bottom: 0px;
-	height: 10vh;
-	left: 0px;
-	right: 0px;
+	width: 90%;
+	margin: 5 auto;
 }
 .search-container {
 	display: flex;
@@ -70,9 +63,9 @@ a {
 .badge-color {
 	color: #ab8a5b;
 }
-#welcome a {
+/* #welcome a {
 	background: #eddec7;
-}
+} */
 
 @media (max-width: 600px) {
 	button.topic-btn {
@@ -118,6 +111,18 @@ a {
 	h3.title {
 		font-size: 1.1rem;
 		line-height: normal;
+	}
+	.cooking {
+		background-color: #ffa07a;
+		background: #ffa07a;
+	}
+	.coding {
+		background-color: #4682b4;
+		background: #4682b4;
+	}
+	.football {
+		background-color: #1f931f;
+		background: #1f931f;
 	}
 }
 

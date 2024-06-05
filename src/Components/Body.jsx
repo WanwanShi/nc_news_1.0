@@ -1,34 +1,60 @@
-import { TiThMenu } from "react-icons/ti";
-import ArticlesList from "./ArticlesList";
-import { useState } from "react";
-import Sort from "./Sort";
-export default function Body({ currentSearch, searchParams }) {
-	const [isMenuHidden, setIsMenuHidden] = useState(true);
+import ArticlesList from "./Article/ArticlesList";
+import { useEffect, useState } from "react";
 
-	const menuClick = () => {
-		setIsMenuHidden(!isMenuHidden);
-	};
+import { groupArticlesByUser } from "../utils/api";
+import UserAvatar from "./User/UserAvatar";
+import Footer from "./Footer";
+import ErrorPage from "./ErrorPage";
+import Loading from "./Loading";
+import TitleHighlight from "./Article/TitleHighlight";
+export default function Body({ currentSearch, searchParams }) {
+	const [isError, setIsError] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const [topCreator, setTopCreator] = useState([]);
+
+	useEffect(() => {
+		setIsLoading(true);
+		setIsError(false);
+		groupArticlesByUser()
+			.then((sortedArticlesByAuthor) => {
+				setTopCreator(sortedArticlesByAuthor);
+				setIsLoading(false);
+				setIsError(false);
+			})
+			.catch(() => {
+				setIsError(true);
+				setIsLoading(false);
+			});
+	}, []);
+	if (isError) {
+		return <ErrorPage />;
+	}
+	if (isLoading) {
+		return <Loading />;
+	}
 	return (
-		<>
-			<button
-				className="bg-hl sticky"
-				aria-label="sort by button"
-				onClick={menuClick}
-			>
-				<TiThMenu
-					className={isMenuHidden ? "size-8 mt-2" : "size-8 mt-2 btn-hl"}
+		<div className="min-h-screen ">
+			<div className=" flex flex-col w-6/8 mx-auto ">
+				<ArticlesList
+					currentSearch={currentSearch}
+					searchParams={searchParams}
 				/>
-			</button>
-			<div
-				className={
-					isMenuHidden
-						? "border-4 border-black h-24 hidden"
-						: "border-4 border-black h-24"
-				}
-			>
-				<Sort searchParams={searchParams} />
 			</div>
-			<ArticlesList currentSearch={currentSearch} searchParams={searchParams} />
-		</>
+			<div className="ml-5">
+				<TitleHighlight
+					title="Top Creators"
+					bgColor="strongHighlight"
+					className="w-fit-content "
+				/>
+			</div>
+			<div className="flex flex-col mx-auto mt-3">
+				<div className="grid  grid-flow-row grid-cols-12 ">
+					{topCreator.slice(0, 5).map((user, index) => {
+						return <UserAvatar key={index} user={user} />;
+					})}
+				</div>
+			</div>
+			<Footer />
+		</div>
 	);
 }

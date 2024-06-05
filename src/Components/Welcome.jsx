@@ -3,7 +3,7 @@ import Welcome_animation from "../assets/Welcome_Animation - 1715250039783.json"
 import { Link } from "react-router-dom";
 export default function Welcome() {
 	return (
-		<div className="flex-col place-items-center ">
+		<div className="flex-col place-items-center min-h-screen bg-lightBg dark:bg-darkBg text-lightText dark:text-darkText">
 			<div className="size-60  mx-auto mt-20">
 				<Lottie
 					animationData={Welcome_animation}
