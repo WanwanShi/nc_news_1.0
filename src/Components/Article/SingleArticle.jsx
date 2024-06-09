@@ -9,6 +9,7 @@ import CommentCard from "./CommentCard";
 import ArticleVotes from "./ArticleVotes";
 import PostComment from "./PostComment";
 import ErrorPage from "../ErrorPage";
+import Loading from "../Loading";
 
 export default function SingleArticle() {
 	const { article_id } = useParams();
@@ -19,6 +20,7 @@ export default function SingleArticle() {
 	const [newComment, setNewComment] = useState({});
 	const [deletedCommentId, setDeletedCommentId] = useState("");
 	const [isDeleting, setIsDeleting] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const handleDelete = (comment_id) => {
 		if (confirm("Are you sure you want to delete this comment?")) {
@@ -40,6 +42,8 @@ export default function SingleArticle() {
 		getCommentByArticleId(article_id)
 			.then(({ data }) => {
 				setComments(data.comments);
+
+				setIsCommentError(false);
 			})
 			.catch(() => {
 				setIsCommentError(true);
@@ -58,17 +62,24 @@ export default function SingleArticle() {
 
 	useEffect(() => {
 		setIsArticleError(false);
+		setIsLoading(true);
 		getArticleById(article_id)
 			.then(({ data }) => {
 				setSingleArticle(() => {
 					return data.article;
 				});
+				setIsLoading(false);
+				setIsArticleError(false);
 			})
 			.catch(() => {
 				setIsArticleError(true);
+				setIsLoading(false);
 			});
 	}, [article_id]);
 
+	if (isLoading) {
+		return <Loading />;
+	}
 	if (isArticleError) {
 		return <ErrorPage />;
 	}

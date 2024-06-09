@@ -11,7 +11,7 @@ export default function Profile() {
 		navigate("/news/users/login");
 	};
 	return (
-		<>
+		<div className="profile mx-40 border-2 border-black mt-5">
 			{!login && <button onClick={handleLogin}>Login</button>}
 			{login && (
 				<>
@@ -19,6 +19,6 @@ export default function Profile() {
 					<h1> This is my page</h1>
 				</>
 			)}
-		</>
+		</div>
 	);
 }

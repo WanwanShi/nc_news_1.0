@@ -20,7 +20,6 @@ export default function ArticlesList({ currentSearch, searchParams }) {
 	const sortByQuery = searchParams.get("sort_by");
 	const orderQuery = searchParams.get("order");
 	const [isLoading, setIsLoading] = useState(true);
-	// const [limit, setLimit] = useState(7);
 	const [isLoadingMore, setIsLoadingMore] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [noMoreArticles, setNoMoreArticles] = useState(false);

@@ -47,7 +47,7 @@ export default function Body({ currentSearch, searchParams }) {
 					className="w-fit-content "
 				/>
 			</div>
-			<div className="flex flex-col mx-auto mt-3">
+			<div className="flex flex-col mx-auto mt-3 ml-5">
 				<div className="grid  grid-flow-row grid-cols-12 ">
 					{topCreator.slice(0, 5).map((user, index) => {
 						return <UserAvatar key={index} user={user} />;

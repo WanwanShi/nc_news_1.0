@@ -44,7 +44,7 @@ export default function Login() {
 							placeholder="grumpy19"
 						/>
 						<p className="mx-3 text-sm text-gray-500">
-							You can try to login with "grumpy19" as username
+							You can try to login with `grumpy19` as username
 						</p>
 					</div>
 					<div className="p-20">

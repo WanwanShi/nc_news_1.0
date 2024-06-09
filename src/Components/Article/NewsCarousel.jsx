@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Carousel } from "react-bootstrap";
 import TitleHighlight from "./TitleHighlight";
+import { Link } from "react-router-dom";
 
 const topicColors = {
 	coding: "#4682B4",
@@ -41,16 +42,18 @@ function ControlledCarousel({ articles }) {
 			<Carousel activeIndex={index} onSelect={handleSelect} className="mt-4">
 				{articles.map((article, index) => (
 					<Carousel.Item key={index} interval={4000}>
-						<CarouselImage article={article} />
-						<Carousel.Caption>
-							<div className="bg-opacity-30 bg-mainBg text-2xl  text-mainText font-bold  p-1 rounded h-30 w-full">
-								<h3 className="title font-extrabold ">{article.title}</h3>
-								<p className="text-sm ">
-									{article.author} -{" "}
-									{new Date(article.created_at).toLocaleDateString()}
-								</p>
-							</div>
-						</Carousel.Caption>
+						<Link to={`/news/${article.article_id}`}>
+							<CarouselImage article={article} />
+							<Carousel.Caption>
+								<div className="bg-opacity-30 bg-mainBg text-2xl  text-mainText font-bold  p-1 rounded h-30 w-full">
+									<h3 className="title font-extrabold ">{article.title}</h3>
+									<p className="text-sm ">
+										{article.author} -{" "}
+										{new Date(article.created_at).toLocaleDateString()}
+									</p>
+								</div>
+							</Carousel.Caption>
+						</Link>
 					</Carousel.Item>
 				))}
 			</Carousel>
